@@ -9,7 +9,7 @@ return new class extends Migration
    
     public function up(): void /* La méthode UP est utilisée pour ajouter de nouvelles tables, colonnes ou index à votre base de données */
     {
-        
+        Schema::dropIfExists('estimates'); // Supprime la table 'estimates' si elle existe déjà
         Schema::create('estimates', function (Blueprint $table) { // Crée la table 'estimates'
            
             $table->id(); // Colonne 'id' auto-incrémentée (clé primaire)
