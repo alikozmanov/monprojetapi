@@ -17,7 +17,7 @@ class EstimateController extends Controller
     // Méthode pour afficher un devis spécifique en fonction de son ID
     public function show($id) 
     {
-        $estimate = Estimate::find($id); // Recherche un devis par son ID
+        $estimate = Estimate::find($id); // find est utilisé pour recherche un devis par son ID 
         if (!$estimate) {
             return response()->json(['message' => 'Estimate non trouvé'], 404); // Si le devis n'est pas trouvé, retourne une réponse JSON avec un code de statut 404 (Non trouvé).
         }
@@ -28,6 +28,7 @@ class EstimateController extends Controller
     public function store(Request $request)
     {
         $data = $request->all(); // Récupère toutes les données de la requête HTTP
+        $data['first_name'] = $request->input('first_name', ''); // Assurez-vous que 'first_name' ait une valeur par défaut VIDE
         $estimate = Estimate::create($data); // Crée un nouveau devis en utilisant les données reçues
         return response()->json($estimate, 201); // Retourne le devis créé en format JSON avec un code de statut 201 (Créé avec succès).
     }

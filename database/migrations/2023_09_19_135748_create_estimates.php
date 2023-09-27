@@ -13,7 +13,7 @@ return new class extends Migration
         Schema::create('estimates', function (Blueprint $table) { // Crée la table 'estimates'
            
             $table->id(); // Colonne 'id' auto-incrémentée (clé primaire)
-            $table->string('first_name'); // Colonne 'first_name' de type chaîne de caractères
+            $table->string('first_name')->default(''); // Valeur par défaut vide
             $table->string('last_name'); // Colonne 'last_name' de type chaîne de caractères
             $table->string('company_name'); // Colonne 'company_name' de type chaîne de caractères
             $table->string('email'); // Colonne 'email' de type chaîne de caractères
