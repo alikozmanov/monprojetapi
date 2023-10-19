@@ -54,4 +54,16 @@ class EstimateController extends Controller
         $estimate->delete(); // Supprime le devis de la base de données
         return response()->json(['message' => 'Estimate supprimé'], 204); // Retourne une réponse JSON avec un code de statut 204 (Pas de contenu) pour indiquer que le devis a été supprimé avec succès.
     }
+    
+
+    // Vérification du jeton CSRF (Cross-Site Request Forgery)
+    public function verifierJeton(Request $request)
+    {
+    // Générer un jeton CSRF (token) pour la protection contre les attaques CSRF
+    $jeton = csrf_token();
+
+    // Renvoyer la vue 'verifier-jeton' en passant le jeton comme variable
+    return view('verifier-jeton', compact('jeton'));
+    }
+
 }

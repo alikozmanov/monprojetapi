@@ -1,10 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route; //Importe la classe Route de Laravel, qui est utilisée pour définir des routes dans l'application
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EstimateController; // Importez le contrôleur EstimateController
 
-// Définit une route GET pour l'URI '/' (la page d'accueil)
-Route::get('/', function () {
-    return view('welcome'); // Renvoie la vue 'welcome' lorsque cette route est accédée
+Route::get('/', function () { 
+    return view('app'); // Nom de la vue Laravel(projet.blade.php) qui renverra l'application React
 });
-
-
