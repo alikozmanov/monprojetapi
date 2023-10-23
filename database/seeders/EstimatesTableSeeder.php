@@ -20,6 +20,8 @@ class EstimatesTableSeeder extends Seeder
                 'phone_number' => '123456789' . $i, // Génère un numéro de téléphone avec un numéro incrémenté (ex : "1234567890", "1234567891", ...)
                 'website_url' => 'http://example' . $i . '.com', // Génère une URL de site web avec un numéro incrémenté (ex : "http://example0.com", "http://example1.com", ...)
                 'project_description' => 'Description du projet ' . $i, // Ajoute une description de projet avec un numéro incrémenté (ex : "Description du projet 0", "Description du projet 1", ...)
+                'project_type' => 'Type du projet ' . $i, // Ajoutez le champ 'project_type' avec une valeur fictive
+                'services_requests' => 'Demande de services ' . $i, // Ajoutez le champ 'services_requests' avec une valeur fictive
             ]);
         }
     }
