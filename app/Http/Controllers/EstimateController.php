@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Estimate;
+use Illuminate\Support\Facades\Log;
 
 class EstimateController extends Controller
 {
@@ -24,13 +25,26 @@ class EstimateController extends Controller
         return response()->json($estimate, 200); // Si le devis est trouvé, retourne le devis en format JSON avec un code de statut 200 (OK).
     }
 
-    // Méthode pour créer un nouveau devis
+    // Méthode pour créer un nouveau devis NEW
     public function store(Request $request)
     {
-        $data = $request->all(); // Récupère toutes les données de la requête HTTP
-        $data['first_name'] = $request->input('first_name', ''); // Assurez-vous que 'first_name' ait une valeur par défaut VIDE
-        $estimate = Estimate::create($data); // Crée un nouveau devis en utilisant les données reçues
-        return response()->json($estimate, 201); // Retourne le devis créé en format JSON avec un code de statut 201 (Créé avec succès).
+        Log::debug($request);
+        $data = $request->only([ // Méthode only inclut uniquement les données spécifiés dans le tableau (first_name, etc...)
+            'first_name',
+            'last_name',
+            'company_name',
+            'email',
+            'phone_number',
+            'website_url',
+            'project_description',
+            'project_type',
+            'services_requests'
+        ]);
+        $data['project_type'] = $request->input('project_type', ''); // La valeur 'project_type' de la requête à $data['project_type'], avec une valeur par défaut vide 
+        $data['services_requests'] = $request->input('services_requests', '');
+    
+        $estimate = Estimate::create($data); // Crée un nouvel objet Estimate avec les données extraites
+        return response()->json($estimate, 201); // Renvoie une réponse JSON avec l'objet Estimate et un code de statut HTTP 201 (Créé)
     }
 
     // Méthode pour mettre à jour un devis existant en fonction de son ID

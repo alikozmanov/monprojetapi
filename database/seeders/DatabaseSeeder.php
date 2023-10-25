@@ -13,6 +13,5 @@ class DatabaseSeeder extends Seeder
         // On appelle le seeder EstimatesTableSeeder pour peupler la table "estimates"
         $this->call(EstimatesTableSeeder::class);
         
-        // D'autres seeders ici, si nécessaire, pour peupler d'autres tables.
     }
 }
