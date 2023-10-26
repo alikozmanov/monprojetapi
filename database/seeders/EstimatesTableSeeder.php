@@ -9,8 +9,8 @@ class EstimatesTableSeeder extends Seeder
 {
     public function run()
     {
-        // Exemple de création de 5 devis de test
-        for ($i = 0; $i < 5; $i++) {
+        // Exemple de création de 4 devis de test
+        for ($i = 0; $i < 4; $i++) {
             // Crée un nouvel enregistrement dans la table "estimates" en utilisant le modèle Estimate
             Estimate::create([
                 'first_name' => 'Nom' . $i, // Ajoute le prénom avec un numéro incrémenté (ex : "Nom0", "Nom1", ...)
