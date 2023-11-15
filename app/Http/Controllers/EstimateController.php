@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers; // Définit le namespace pour ce contrôleur
 
-use Illuminate\Http\Request;
-use App\Models\Estimate;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Request; // Importe la classe Request de Laravel
+use App\Models\Estimate; // Importe le modèle Estimate
+use Illuminate\Support\Facades\Log; // Importe la classe Log de Laravel
+
+use Illuminate\Support\Facades\Mail;
+
 
 class EstimateController extends Controller
 {
@@ -29,6 +32,7 @@ class EstimateController extends Controller
     public function store(Request $request)
     {
         Log::debug($request);
+        Log::debug($request->input('other_text'));
         $data = $request->only([ // Méthode only inclut uniquement les données spécifiés dans le tableau (first_name, etc...)
             'first_name',
             'last_name',
@@ -38,12 +42,14 @@ class EstimateController extends Controller
             'website_url',
             'project_description',
             'project_type',
-            'services_requests'
+            'services_requests',
+            'other_text',
         ]);
         $data['project_type'] = $request->input('project_type', ''); // La valeur 'project_type' de la requête à $data['project_type'], avec une valeur par défaut vide 
-        $data['services_requests'] = $request->input('services_requests', '');
+        $data['services_requests'] = $request->input('services_requests', ''); // Récupérez la valeur de 'services_requests' depuis la requête
+        $data['other_text'] = $request->input('other_text', ''); // Récupérez la valeur de 'other_text' depuis la requête
     
-        $estimate = Estimate::create($data); // Crée un nouvel objet Estimate avec les données extraites
+        $estimate = Estimate::create($data); // Crée un nouvel objet Estimate avec les données extraites   // Envoi d'un e-mail de confirmation
         return response()->json($estimate, 201); // Renvoie une réponse JSON avec l'objet Estimate et un code de statut HTTP 201 (Créé)
     }
 
@@ -69,6 +75,8 @@ class EstimateController extends Controller
         return response()->json(['message' => 'Estimate supprimé'], 204); // Retourne une réponse JSON avec un code de statut 204 (Pas de contenu) pour indiquer que le devis a été supprimé avec succès.
     }
     
+
+    // contient une méthode pour générer un jeton CSRF (Cross-Site Request Forgery) pour la SECURITE
 
     // Vérification du jeton CSRF (Cross-Site Request Forgery)
     public function verifierJeton(Request $request)

@@ -1,16 +1,16 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration; // Directive pour créer une migration
-use Illuminate\Database\Schema\Blueprint; // Directive pour gérer la structure de la table
-use Illuminate\Support\Facades\Schema; // Directive pour interagir avec le système de gestion de la base de données
+use Illuminate\Database\Migrations\Migration; // Importe la classe Migration pour créer une migration
+use Illuminate\Database\Schema\Blueprint; // Importe la classe Blueprint pour gérer la structure de la table
+use Illuminate\Support\Facades\Schema; // Importe la classe Schema pour interagir avec le système de gestion de la base de données
 
-return new class extends Migration
+return new class extends Migration //Crée une new classe (sans nom) qui étend la classe Migration. Cette classe contient deux méthodes : up et down.
 {
    
-    public function up(): void /* La méthode UP est utilisée pour ajouter de nouvelles tables, colonnes ou index à votre base de données */
+    public function up(): void /* La méthode up est utilisée pour définir les modifications à apporter à la base de données */
     {
         Schema::dropIfExists('estimates'); // Supprime la table 'estimates' si elle existe déjà
-        Schema::create('estimates', function (Blueprint $table) { // Crée la table 'estimates'
+        Schema::create('estimates', function (Blueprint $table) { // Crée une nouvelle table 'estimates'
            
             $table->id(); // Colonne 'id' auto-incrémentée (clé primaire)
             $table->string('first_name')->default(''); // Valeur par défaut vide
@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('project_description'); // Colonne 'project_description' de type texte (pour de plus longues descriptions)
             $table->string('project_type');
             $table->text('services_requests');
+            $table->string('other_text')->nullable(true);
             $table->timestamps(); // Colonnes 'created_at' et 'updated_at' pour la gestion automatique des horodatages(timestamps)
         });
     }

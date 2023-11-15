@@ -22,6 +22,7 @@ class EstimatesTableSeeder extends Seeder
                 'project_description' => 'Description du projet ' . $i, // Ajoute une description de projet avec un numéro incrémenté (ex : "Description du projet 0", "Description du projet 1", ...)
                 'project_type' => 'Type du projet ' . $i, // Ajoutez le champ 'project_type' avec une valeur fictive
                 'services_requests' => 'Demande de services ' . $i, // Ajoutez le champ 'services_requests' avec une valeur fictive
+                'other_text' => 'autre texte' .$i, // Ajoutez le champ 'other_text' avec une valeur fictive
             ]);
         }
     }

@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EstimateController; 
+use Illuminate\Http\Request; // Importe la classe Request de Laravel
+use Illuminate\Support\Facades\Route; // Importe la classe Route de Laravel
+use App\Http\Controllers\EstimateController; // Importe le contrôleur EstimateController
 
-
+// définit les routes de l'API de l'application Laravel, permettant d'effectuer des opérations CRUD
+// postman routes ok CRUD (Create, Read, Update, Delete) 
 
 // Exemple de route pour la liste des devis (index)
 Route::get('/estimates', [EstimateController::class, 'index']);
