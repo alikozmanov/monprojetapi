@@ -24,6 +24,6 @@ class EstimatesTableSeeder extends Seeder
                 'services_requests' => 'Demande de services ' . $i, // Ajoutez le champ 'services_requests' avec une valeur fictive
                 'other_text' => 'autre texte' .$i, // Ajoutez le champ 'other_text' avec une valeur fictive
             ]);
-        }
+        }   // .$i : serait utilisée pour créer des valeurs uniques à chaque itération de la boucle
     }
 }
