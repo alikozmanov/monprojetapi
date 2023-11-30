@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Models;   // Nous définissons le namespace où il se trouve dans la structure de dossiers de l'application.
+namespace App\Models;  // Le namespace indique l'emplacement de la classe Estimate dans la structure de l'application
 
-use Illuminate\Database\Eloquent\Model; // Importer la classe de base Eloquent de Laravel, dont notre modèle héritera.
+use Illuminate\Database\Eloquent\Model; // Importe la classe de base Eloquent pour la création de modèles.
 
 
-// Ce code spécifie les champs qui peuvent être remplis en toute sécurité et de manière massive 
 
 
 class Estimate extends Model // Déclarer le modèle "Estimate" en l'étendant à partir de la classe Eloquent de base.

@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Http\Controllers; // Définit le namespace pour ce contrôleur
-
 use Illuminate\Http\Request; // Importe la classe Request de Laravel
 use App\Models\Estimate; // Importe le modèle Estimate
 use Illuminate\Support\Facades\Log; // Importe la classe Log de Laravel
-
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Mail; // Importe la classe Mail de Laravel
 
 
 class EstimateController extends Controller

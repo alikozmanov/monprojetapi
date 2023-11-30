@@ -1,7 +1,6 @@
 <?php
 
-// En résumé, cette configuration CORS autorisant toutes les origines, toutes les méthodes, 
-// tous les en-têtes, sans mise en cache et sans prise en charge des informations d'identification
+// Cette configuration CORS autorisant toutes les origines, toutes les méthodes
 
 return [
     'paths' => ['*'], // '*' signifie que toutes les ROUTES sont AUTORISEES pour les requêtes CORS (cross-origin).
