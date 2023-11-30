@@ -9,9 +9,9 @@ class EstimatesTableSeeder extends Seeder
 {
     public function run()
     {
-        // Exemple de création de 4 devis de test
-        for ($i = 0; $i < 4; $i++) {
-            // Crée un nouvel enregistrement dans la table "estimates" en utilisant le modèle Estimate
+        // Création de 4 devis de test
+        for ($i = 0; $i < 4; $i++) { 
+            // Crée un nouvel enregistrement dans la table "estimates"
             Estimate::create([
                 'first_name' => 'Nom' . $i, // Ajoute le prénom avec un numéro incrémenté (ex : "Nom0", "Nom1", ...)
                 'last_name' => 'Prénom' . $i, // Ajoute le nom de famille avec un numéro incrémenté (ex : "Prénom0", "Prénom1", ...)
@@ -24,6 +24,6 @@ class EstimatesTableSeeder extends Seeder
                 'services_requests' => 'Demande de services ' . $i, // Ajoutez le champ 'services_requests' avec une valeur fictive
                 'other_text' => 'autre texte' .$i, // Ajoutez le champ 'other_text' avec une valeur fictive
             ]);
-        }   // .$i : serait utilisée pour créer des valeurs uniques à chaque itération de la boucle
+        }   
     }
 }
