@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model; // Importe la classe de base Eloquent po
 
 class Estimate extends Model // Déclarer le modèle "Estimate" en l'étendant à partir de la classe Eloquent de base.
 {
-//La propriété 'fillable' spécifier les champs qui peuvent être remplis en toutes SECURITE et de manière MASSIVE.
+    // La propriété 'fillable' autorise les champs qui peuvent être remplis de manière massive
     protected $fillable = [
         'first_name',           
         'last_name',            
@@ -24,3 +24,7 @@ class Estimate extends Model // Déclarer le modèle "Estimate" en l'étendant �
     ];
     
 } 
+
+
+
+

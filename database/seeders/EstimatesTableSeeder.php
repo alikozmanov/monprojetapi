@@ -7,11 +7,9 @@ use App\Models\Estimate;
 
 class EstimatesTableSeeder extends Seeder
 {
-    public function run()
+    public function run() // La méthode 'run' pour insérer des données de test dans la table "estimates".
     {
-        // Création de 4 devis de test
         for ($i = 0; $i < 4; $i++) { 
-            // Crée un nouvel enregistrement dans la table "estimates"
             Estimate::create([
                 'first_name' => 'Nom' . $i, // Ajoute le prénom avec un numéro incrémenté (ex : "Nom0", "Nom1", ...)
                 'last_name' => 'Prénom' . $i, // Ajoute le nom de famille avec un numéro incrémenté (ex : "Prénom0", "Prénom1", ...)
@@ -27,3 +25,8 @@ class EstimatesTableSeeder extends Seeder
         }   
     }
 }
+
+
+
+
+

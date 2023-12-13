@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema; // Importe la classe Schema pour interagi
 return new class extends Migration //Crée une new classe (sans nom) qui étend la classe Migration. Cette classe contient deux méthodes : up et down.
 {
    
-    public function up(): void /* La méthode up est utilisée pour définir les modifications à apporter à la base de données */
+    public function up(): void 
     {
         Schema::dropIfExists('estimates'); // Supprime la table 'estimates' si elle existe déjà
         Schema::create('estimates', function (Blueprint $table) { // Crée une nouvelle table 'estimates'/ Blueprint déclare la structure 
@@ -27,9 +27,15 @@ return new class extends Migration //Crée une new classe (sans nom) qui étend 
         });
     }
 
-    public function down(): void /* La méthode DOWN doit inverser les opérations effectuées par la méthode UP. */
+    public function down(): void 
     {
         
         Schema::dropIfExists('estimates'); // Supprime la table 'estimates' si elle existe
     }
 };
+
+
+
+
+
+

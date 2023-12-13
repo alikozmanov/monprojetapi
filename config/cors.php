@@ -1,6 +1,6 @@
 <?php
 
-// CORS est une mesure de sécurité pour contrôler les requêtes web entre domaines.
+// CORS (Cross-Origin Resource Sharing) est une mesure de sécurité pour contrôler les requêtes web entre domaines.
 
 return [
     'paths' => ['*'], // Toutes les ROUTES autorisées pour les requêtes CORS.
